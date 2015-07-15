@@ -31,6 +31,12 @@ public class ConsoleReader {
     private String bbb              =
             "j_username=mmusienko&j_password=vfrcbv_1978&from=%2Fjenkins%2F&json=%7B%22j_username%22%3A+%22mmusienko%22%2C+%22j_password%22%3A+%22vfrcbv_1978%22%2C+%22remember_me%22%3A+false%2C+%22from%22%3A+%22%2Fjenkins%2F%22%7D&Submit=%D0%B2%D0%BE%D0%B9%D1%82%D0%B8";
 
+    /**
+     * get user authorize session token from working with codenvy Jenkins
+     * @param userName
+     * @param userPassword
+     * @return
+     */
     public String authorizeCodenvyCi(String userName, String userPassword) {
         String fromPrefData = "from=/jenkins/";
         String jsonData = "&json={\"j_username\":" + "\"" + userName + "\"," + " \"j_password\": \"" + userPassword +
@@ -64,7 +70,12 @@ public class ConsoleReader {
 
     }
 
-
+    /**
+     * get last string from console of the latest job
+     * @param userName
+     * @param userPassword
+     * @return
+     */
     public String getInfo(String userName, String userPassword) {
         HttpURLConnection connection = null;
         BufferedReader br;
@@ -95,12 +106,9 @@ public class ConsoleReader {
         }
         String revertStr = responseData.toString();
 
-        String[] revertStrx = revertStr.split("<b>");
-        for (String s : revertStrx) {
-            System.out.println(s);
-        }
+        String[] spltedArrStr = revertStr.split("<b>");
 
-        return "****";
+        return  spltedArrStr[spltedArrStr.length];
     }
 
 }

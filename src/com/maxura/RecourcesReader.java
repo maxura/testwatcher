@@ -1,7 +1,6 @@
 package com.maxura;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -10,7 +9,6 @@ import java.util.ResourceBundle;
  * Created by maxura on 14.07.2015.
  */
 public class RecourcesReader {
-
 
    public static final ResourceBundle     IDE_SETTINGS    = ResourceBundle.getBundle("credentials");
    static String getLogin(){return IDE_SETTINGS.getString("jenkins.authorize.login");}

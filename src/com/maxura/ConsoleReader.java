@@ -108,7 +108,7 @@ public class ConsoleReader {
 
         String[] spltedArrStr = revertStr.split("<b>");
 
-        return  spltedArrStr[spltedArrStr.length];
+        return  spltedArrStr[spltedArrStr.length-1];
     }
 
 }
